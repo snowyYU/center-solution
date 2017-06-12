@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>居中实现</title>
+	<style>
+		.wrapper{
+			width: 100%;
+		}
+		#sec1{
+			width: 200px;
+			height: 200px;
+			margin:0 auto;
+			background-color: black;
+		}
+		#sec2{
+			position:absolute;
+			width: 100px;
+			height: 100px;
+			background-color: lightblue;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin:auto;
+		}
+		#sec3{
+			display: inline-block;
+			width: 200px;
+			height: 200px;
+			background-color: lightgreen;
+
+		}
+		.verticleCenter{
+			height: 400px;
+			border: 1px solid #333;
+			margin-bottom: 5px;
+		}
+		#sev1{
+			position: relative;
+			width: 50px;
+			height: 50px;
+			top: 50%;
+			left: 50%;
+			margin-top: -25px;
+			margin-left: -25px;
+			background-color: lightpink;
+		}
+		#sev2{
+			position:relative;
+			width: 50px;
+			height: 50px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background-color: lightblue;
+		}
+		.flexVerticleCenter{
+			height: 400px;
+			border: 1px solid #333;
+			display: flex;
+ 			align-items: center; 		/* 垂直居中 */
+ 			justify-content: center;	/* 水平居中 */
+		}
+		#sev3{
+			width: 50px;
+			height: 50px;
+			background-color: lightgreen;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<h1>水平居中</h1>
+		<section>
+			<h2>居中元素宽度固定，设置margin:0 auto</h2>
+			<p>这个对父元素没有宽度要求</p>
+			<div id="sec1"></div>
+		</section>
+		<section>
+			<h2>绝对定位居中</h2>
+			<p>有意思的是这个变成水平加垂直的居中，不过通过设置margin:auto 0;或margin:0 auto;来变成单一方向的居中</p>
+			<div id="sec2"></div>
+		</section>
+		<section>
+			<h2>text-align为center的居中</h2>
+			<p>这种方法需要设置父级元素的text-align为center，并且父级元素有宽度值，同时需要居中的元素的dislay不为block</p>
+			<div style="text-align: center;">
+				<div id="sec3"></div>				
+			</div>
+		</section>
+		<h1>垂直居中</h1>
+		<h2>利用</h2>
+		<p>需要知道垂直居中元素的高度，并确定容器的高度</p>
+		<section class="verticleCenter">
+			<div id="sev1"></div>
+		</section>
+		<h2></h2>
+		<p>这个方法不需要确定居中元素自身的高度，不过用到了css3的transform</p>
+		<section class="verticleCenter">
+			<div id="sev2"></div>
+		</section>
+		<h2>利用flex</h2>
+		<p>考虑自身的兼容性</p>
+		<section class="flexVerticleCenter">
+			<div id="sev3"></div>
+		</section>
+	</div>
+	
+</body>
+</html>
